@@ -17,19 +17,22 @@ darkModeToggle.addEventListener("click", () => {
     }
 });
 
-// Newsletter Signup (Simple Confirmation)
-document.getElementById("newsletterForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    document.getElementById("message").textContent = "Thank you for subscribing!";
-});
-
-// Latest News (Dynamically Load Content)
+// Fetch Latest News (Simulated)
 const newsContainer = document.getElementById("news-container");
 
 const newsData = [
-    { title: "NASA Discovers New Exoplanet!", date: "Feb 10, 2025" },
-    { title: "Lunar Eclipse Visible This Weekend", date: "Feb 15, 2025" },
-    { title: "Hubble Captures Stunning Galaxy Image", date: "Feb 20, 2025" }
+    { 
+        title: "Astronomers Discover New Exoplanet", 
+        img: "https://www.nasa.gov/sites/default/files/thumbnails/image/exoplanet.png"
+    },
+    { 
+        title: "Black Hole Captured in Stunning Detail", 
+        img: "https://www.nasa.gov/sites/default/files/thumbnails/image/blackhole.jpg"
+    },
+    { 
+        title: "Upcoming Meteor Shower - Don't Miss It!", 
+        img: "https://www.nasa.gov/sites/default/files/thumbnails/image/meteorshower.jpg"
+    }
 ];
 
 function displayNews() {
@@ -37,8 +40,22 @@ function displayNews() {
     newsData.forEach(news => {
         let div = document.createElement("div");
         div.classList.add("news-item");
-        div.innerHTML = `<strong>${news.title}</strong><br><small>${news.date}</small>`;
+        div.innerHTML = `<img src="${news.img}" alt="News Image"><h3>${news.title}</h3>`;
         newsContainer.appendChild(div);
     });
 }
+
+// Scroll Animation: Fade-in on Scroll
+const hiddenElements = document.querySelectorAll(".hidden");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.2 }); // Trigger when 20% of the element is visible
+
+hiddenElements.forEach(el => observer.observe(el));
+
 displayNews();
