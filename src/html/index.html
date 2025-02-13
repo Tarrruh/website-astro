@@ -10,33 +10,46 @@
 <body>
     <nav>
         <div class="logo">🚀 Astronomy Club</div>
-        <input type="text" placeholder="Search..." class="search-bar">
+        <button class="menu-button">☰</button>
         <div class="menu">
-            <a href="#">News & Events</a>
-            <a href="#">Multimedia</a>
+            <a href="#news">News & Events</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#sky-map">Live Sky Map</a>
             <button id="darkModeToggle">🌙</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero hidden"></section>
+    <!-- Hero Section with Parallax -->
+    <section class="hero">
         <div class="overlay"></div>
         <div class="hero-content">
             <h1>Exploring the Universe</h1>
             <p>Join us as we uncover the mysteries of space.</p>
-            <button class="btn">Mission Updates</button>
+            <button class="btn" onclick="location.href='#news'">Mission Updates</button>
         </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="countdown">
+        <h2>Next Major Space Event</h2>
+        <p id="eventCountdown">Loading...</p>
     </section>
 
     <!-- Featured News -->
     <section class="news hidden">
         <h2>Featured News</h2>
         <div class="news-container" id="news-container"></div>
-        <a href="#" class="more-news">More Astronomy News →</a>
+        <a href="https://www.space.com/news" target="_blank" class="more-news">More Astronomy News →</a>
+    </section>
+
+    <!-- Live Sky Map -->
+    <section id="sky-map" class="sky-map">
+        <h2>Live Sky Map</h2>
+        <iframe src="https://stellarium-web.org/" width="100%" height="500px"></iframe>
     </section>
 
 
-    <footer>© 2025 Astronomy Club Amrita Vishwa Vidyapeetham </footer>
-</body>
 
+    <footer>© 2025 Astronomy Club Amrita Vishwa Vidyapeetham</footer>
+</body>
 </html>

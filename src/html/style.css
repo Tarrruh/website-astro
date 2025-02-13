@@ -1,11 +1,11 @@
-/* General */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #fff;
     color: #000;
-    transition: background 0.5s, color 0.5s;
+    transition: background 0.5s ease, color 0.5s ease;
 }
 .dark-mode {
     background-color: #000;
@@ -33,17 +33,49 @@ nav .search-bar {
     border-radius: 5px;
     border: none;
 }
+nav .menu {
+    display: flex;
+    align-items: center;
+}
 nav .menu a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
 }
 
-/* Hero Section */
+/* Hamburger Menu */
+#menu-button {
+    display: none;
+    background: none;
+    font-size: 2rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    #menu-button {
+        display: block;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        right: 0;
+        top: 60px;
+        width: 200px;
+    }
+    .menu.active {
+        display: flex;
+    }
+}
+
+/* Hero Section with Parallax */
 .hero {
     position: relative;
     height: 100vh;
     background: url('https://www.nasa.gov/sites/default/files/thumbnails/image/pia24924.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
 }
 .overlay {
     position: absolute;
@@ -100,22 +132,16 @@ nav .menu a {
     background: #333;
     color: white;
 }
-.more-news {
-    display: block;
+
+/* Countdown Timer */
+#countdown {
+    font-size: 1.5rem;
+    text-align: center;
     margin-top: 20px;
-    text-decoration: none;
-    color: red;
 }
 
-
-/* Fade-in animation */
-.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
+/* Quiz */
+#quiz-container {
+    text-align: center;
+    margin-top: 20px;
 }
