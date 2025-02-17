@@ -6,49 +6,55 @@
     <title>Astronomy Club</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <nav>
         <div class="logo">🚀 Astronomy Club</div>
-        <button class="menu-button">☰</button>
+        <button id="menu-button"><i class="fas fa-bars"></i></button>  <!-- Hamburger Icon -->
+        <input type="text" placeholder="Search..." class="search-bar">
         <div class="menu">
-            <a href="#news">News & Events</a>
-            <a href="#quiz">Quiz</a>
-            <a href="#sky-map">Live Sky Map</a>
+            <a href="#">News & Events</a>
+            <a href="#">Multimedia</a>
             <button id="darkModeToggle">🌙</button>
         </div>
     </nav>
 
-    <!-- Hero Section with Parallax -->
-    <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero hidden">
         <div class="overlay"></div>
         <div class="hero-content">
             <h1>Exploring the Universe</h1>
             <p>Join us as we uncover the mysteries of space.</p>
-            <button class="btn" onclick="location.href='#news'">Mission Updates</button>
+            <button class="btn">Mission Updates</button>
         </div>
     </section>
 
-    <!-- Countdown Timer -->
-    <section class="countdown">
-        <h2>Next Major Space Event</h2>
-        <p id="eventCountdown">Loading...</p>
-    </section>
-
-    <!-- Featured News -->
-    <section id="news" class="news">
+    <!-- Live Astronomy News -->
+    <section class="news hidden">
         <h2>Featured News</h2>
         <div class="news-container" id="news-container"></div>
-        <a href="https://www.space.com/news" target="_blank" class="more-news">More Astronomy News →</a>
+        <a href="#" class="more-news">More Astronomy News →</a>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="countdown-section hidden">
+        <h2>Next Big Event</h2>
+        <div id="countdown"></div>
     </section>
 
     <!-- Live Sky Map -->
-    <section id="sky-map" class="sky-map">
+    <section class="sky-map hidden">
         <h2>Live Sky Map</h2>
-        <iframe src="https://stellarium-web.org/" width="100%" height="500px"></iframe>
+        <iframe width="800" height="600" src="https://stellarium-web.org/" title="Stellarium Web"></iframe>
     </section>
 
-
+    <!-- Interactive Quiz -->
+    <section class="quiz-section hidden">
+        <h2>Astronomy Quiz</h2>
+        <button id="quiz-button">Start Quiz</button>
+        <div id="quiz-container"></div>
+    </section>
 
     <footer>© 2025 Astronomy Club Amrita Vishwa Vidyapeetham</footer>
 </body>

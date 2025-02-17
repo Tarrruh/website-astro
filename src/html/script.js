@@ -50,6 +50,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
+            observer.unobserve(entry.target); // Stop observing after showing
         }
     });
 }, { threshold: 0.2 });
@@ -93,11 +94,19 @@ const quizButton = document.getElementById("quiz-button");
 const quizContainer = document.getElementById("quiz-container");
 
 quizButton.addEventListener("click", () => {
-    quizContainer.innerHTML = `
-        <h3>What is the largest planet in our solar system?</h3>
-        <button onclick="alert('Correct!')">Jupiter</button>
-        <button onclick="alert('Try Again!')">Mars</button>
-        <button onclick="alert('Try Again!')">Earth</button>
-        <button onclick="alert('Try Again!')">Venus</button>
+   quizContainer.innerHTML = `
+        <h3>What type of galaxy is the Milky Way?</h3>
+        <button onclick="checkAnswer('spiral')">Spiral</button>
+        <button onclick="checkAnswer('elliptical')">Elliptical</button>
+        <button onclick="checkAnswer('irregular')">Irregular</button>
+        <button onclick="checkAnswer('lenticular')">Lenticular</button>
     `;
 });
+
+function checkAnswer(answer) {
+    if (answer === 'spiral') {
+        quizContainer.innerHTML = '<h3>Correct! The Milky Way is a spiral galaxy.</h3>';
+    } else {
+        quizContainer.innerHTML = '<h3>Incorrect. Try again!</h3>';
+    }
+}

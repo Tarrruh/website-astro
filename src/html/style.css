@@ -6,6 +6,7 @@ body {
     background-color: #fff;
     color: #000;
     transition: background 0.5s ease, color 0.5s ease;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 .dark-mode {
     background-color: #000;
@@ -64,9 +65,15 @@ nav .menu a {
         right: 0;
         top: 60px;
         width: 200px;
+        padding: 10px;
     }
     .menu.active {
         display: flex;
+    }
+
+    .menu a {
+        padding: 10px;
+        text-align: center;
     }
 }
 
@@ -76,6 +83,9 @@ nav .menu a {
     height: 100vh;
     background: url('https://www.nasa.gov/sites/default/files/thumbnails/image/pia24924.jpg') no-repeat center center/cover;
     background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .overlay {
     position: absolute;
@@ -84,12 +94,9 @@ nav .menu a {
     background: rgba(0, 0, 0, 0.5);
 }
 .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
     color: white;
+    z-index: 1; /* Ensure text is above overlay */
 }
 .hero-content h1 {
     font-size: 3rem;
@@ -124,6 +131,8 @@ nav .menu a {
 .news-item img {
     width: 100%;
     border-radius: 5px;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio */
 }
 .news-item:hover {
     transform: scale(1.05);
@@ -134,14 +143,72 @@ nav .menu a {
 }
 
 /* Countdown Timer */
+.countdown-section {
+    text-align: center;
+    padding: 20px;
+}
+
 #countdown {
     font-size: 1.5rem;
     text-align: center;
     margin-top: 20px;
 }
 
+/* Live Sky Map */
+.sky-map {
+    text-align: center;
+    padding: 20px;
+}
+
 /* Quiz */
+.quiz-section {
+    text-align: center;
+    padding: 20px;
+}
+
 #quiz-container {
     text-align: center;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#quiz-container h3 {
+    margin-bottom: 15px;
+}
+
+#quiz-container button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#quiz-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Scroll Animation */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
 }
