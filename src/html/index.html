@@ -9,16 +9,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <nav>
-        <div class="logo">🚀 Astra Club</div>
-        <button id="menu-button"><i class="fas fa-bars"></i></button>  <!-- Hamburger Icon -->
-        <input type="text" placeholder="Search..." class="search-bar">
-        <div class="menu">
-            <a href="#">News & Events</a>
-            <a href="#">Multimedia</a>
-            <button id="darkModeToggle">🌙</button>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="path/to/your/logo.png" alt="Astra Club Logo">
+                <span>Space For Everyone</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Members</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">News & Events</a></li>
+                    <li><a href="#">Astronomical Calendar</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-right"> <!-- Container for login and dark mode toggle -->
+                <div class="login">
+                    <a href="#"><i class="fas fa-user"></i> Log In</a>
+                </div>
+                <button id="darkModeToggle">🌙</button>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero hidden">

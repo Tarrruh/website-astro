@@ -13,68 +13,100 @@ body {
     color: #fff;
 }
 
-/* Navbar */
-nav {
+/* Header Styles */
+header {
+    background-color: #111; /* Dark background */
+    color: #fff;
+    padding: 20px 0;
+    position: relative; /* For potential sticky positioning */
+    z-index: 10; /* Ensure it's above other content */
+}
+
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 10;
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 0 20px;
 }
-nav .logo {
-    font-size: 1.5rem;
-}
-nav .search-bar {
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
-}
-nav .menu {
+
+/* Logo */
+.logo {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
-nav .menu a {
-    color: white;
-    text-decoration: none;
+
+.logo img {
+    max-width: 150px; /* Adjust logo size */
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.logo span {
+    font-size: 0.9em;
+    color: #ddd;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
     margin: 0 15px;
 }
 
-/* Hamburger Menu */
-#menu-button {
-    display: none;
-    background: none;
-    font-size: 2rem;
-    border: none;
-    color: white;
-    cursor: pointer;
+nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-@media (max-width: 768px) {
-    #menu-button {
-        display: block;
-    }
-    .menu {
-        display: none;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        right: 0;
-        top: 60px;
-        width: 200px;
-        padding: 10px;
-    }
-    .menu.active {
-        display: flex;
-    }
 
-    .menu a {
-        padding: 10px;
-        text-align: center;
-    }
+nav a:hover {
+    color: #aaa;
+}
+
+/* Header Right (Login and Dark Mode) */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Login */
+.login a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+    margin-right: 15px; /* Space between login and dark mode toggle */
+}
+
+.login a i {
+    margin-right: 5px;
+}
+
+.login a:hover {
+    color: #aaa;
+}
+
+/* Dark Mode Toggle */
+#darkModeToggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    color: #aaa;
 }
 
 /* Hero Section with Parallax */
@@ -86,6 +118,7 @@ nav .menu a {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 80px;
 }
 .overlay {
     position: absolute;
@@ -212,4 +245,3 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
-
