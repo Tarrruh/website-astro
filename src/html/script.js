@@ -1,23 +1,38 @@
-// Dark Mode Toggle
+
 const darkModeToggle = document.getElementById("darkModeToggle");
 
 function setDarkMode(enabled) {
     document.body.classList.toggle("dark-mode", enabled);
     darkModeToggle.textContent = enabled ? "☀️" : "🌙";
-    localStorage.setItem("theme", enabled ? "dark" : "light");
+    localStorage.setItem("theme", enabled ? "dark" : "light");  // Store preference
 }
 
-// Auto Dark Mode Based on Time (7 PM - 6 AM)
+// Apply Dark Mode on Page Load
+function applyTheme() {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+        setDarkMode(true);
+    } else {
+        setDarkMode(false);
+    }
+}
+
+// Auto Dark Mode
 const hour = new Date().getHours();
 if (localStorage.getItem("theme") === "dark" || (hour >= 19 || hour <= 6)) {
     setDarkMode(true);
+} else if (localStorage.getItem("theme") !== "dark" && (hour < 19 && hour > 6)) {
+    setDarkMode(false);
 }
 
 darkModeToggle.addEventListener("click", () => {
     setDarkMode(!document.body.classList.contains("dark-mode"));
 });
 
-// Fetch Latest News (Live API)
+// Call applyTheme when the page loads
+document.addEventListener('DOMContentLoaded', applyTheme);
+
+
 const newsContainer = document.getElementById("news-container");
 
 async function fetchNews() {
@@ -50,7 +65,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            observer.unobserve(entry.target); // Stop observing after showing
+            observer.unobserve(entry.target);
         }
     });
 }, { threshold: 0.2 });
@@ -59,7 +74,7 @@ hiddenElements.forEach(el => observer.observe(el));
 
 // Countdown Timer for Next Event
 const countdownDisplay = document.getElementById("countdown");
-const eventDate = new Date("2025-06-10T20:00:00").getTime(); // Example Date
+const eventDate = new Date("2025-06-10T20:00:00").getTime(); 
 
 function updateCountdown() {
     const now = new Date().getTime();
@@ -80,14 +95,6 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
-
-// Mobile Navigation (Hamburger Menu)
-const menuButton = document.getElementById("menu-button");
-const menu = document.querySelector(".menu");
-
-menuButton.addEventListener("click", () => {
-    menu.classList.toggle("active");
-});
 
 // Astronomy Quiz
 const quizButton = document.getElementById("quiz-button");
@@ -110,3 +117,11 @@ function checkAnswer(answer) {
         quizContainer.innerHTML = '<h3>Incorrect. Try again!</h3>';
     }
 }
+
+
+const menuButton = document.getElementById("menu-button");
+const menu = document.querySelector(".menu");
+
+menuButton.addEventListener("click", () => {
+    menu.classList.toggle("active");
+});

@@ -18,8 +18,8 @@ header {
     background-color: #111; /* Dark background */
     color: #fff;
     padding: 20px 0;
-    position: relative; /* For potential sticky positioning */
-    z-index: 10; /* Ensure it's above other content */
+    position: relative; 
+    z-index: 10;
 }
 
 .header-content {
@@ -129,7 +129,7 @@ nav a:hover {
 .hero-content {
     text-align: center;
     color: white;
-    z-index: 1; /* Ensure text is above overlay */
+    z-index: 1; 
 }
 .hero-content h1 {
     font-size: 3rem;
@@ -164,8 +164,8 @@ nav a:hover {
 .news-item img {
     width: 100%;
     border-radius: 5px;
-    height: 200px; /* Fixed height for images */
-    object-fit: cover; /* Maintain aspect ratio */
+    height: 200px; 
+    object-fit: cover; 
 }
 .news-item:hover {
     transform: scale(1.05);
@@ -244,4 +244,44 @@ footer {
 .show {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Gallery Page Styles */
+.gallery {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.gallery-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative; 
+    overflow: hidden;   
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; 
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);  
+}
+.dark-mode .gallery-item {
+    background-color: #333;
+    border-color: #555;
+    color: #eee;
 }
