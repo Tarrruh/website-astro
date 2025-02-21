@@ -29,7 +29,7 @@ darkModeToggle.addEventListener("click", () => {
     setDarkMode(!document.body.classList.contains("dark-mode"));
 });
 
-// Call applyTheme when the page loads
+
 document.addEventListener('DOMContentLoaded', applyTheme);
 
 
