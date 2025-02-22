@@ -1,13 +1,10 @@
-
 const darkModeToggle = document.getElementById("darkModeToggle");
 
 function setDarkMode(enabled) {
     document.body.classList.toggle("dark-mode", enabled);
     darkModeToggle.textContent = enabled ? "☀️" : "🌙";
-    localStorage.setItem("theme", enabled ? "dark" : "light");  // Store preference
+    localStorage.setItem("theme", enabled ? "dark" : "light");
 }
-
-// Apply Dark Mode on Page Load
 function applyTheme() {
     const theme = localStorage.getItem("theme");
     if (theme === "dark") {
@@ -16,8 +13,6 @@ function applyTheme() {
         setDarkMode(false);
     }
 }
-
-// Auto Dark Mode
 const hour = new Date().getHours();
 if (localStorage.getItem("theme") === "dark" || (hour >= 19 || hour <= 6)) {
     setDarkMode(true);
@@ -28,11 +23,7 @@ if (localStorage.getItem("theme") === "dark" || (hour >= 19 || hour <= 6)) {
 darkModeToggle.addEventListener("click", () => {
     setDarkMode(!document.body.classList.contains("dark-mode"));
 });
-
-
 document.addEventListener('DOMContentLoaded', applyTheme);
-
-
 const newsContainer = document.getElementById("news-container");
 
 async function fetchNews() {
@@ -57,8 +48,6 @@ async function fetchNews() {
 }
 
 fetchNews();
-
-// Scroll Animation: Fade-in Effect
 const hiddenElements = document.querySelectorAll(".hidden");
 
 const observer = new IntersectionObserver((entries) => {
@@ -71,10 +60,8 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 hiddenElements.forEach(el => observer.observe(el));
-
-// Countdown Timer for Next Event
 const countdownDisplay = document.getElementById("countdown");
-const eventDate = new Date("2025-06-10T20:00:00").getTime(); 
+const eventDate = new Date("2025-06-10T20:00:00").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
@@ -95,8 +82,6 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
-
-// Astronomy Quiz
 const quizButton = document.getElementById("quiz-button");
 const quizContainer = document.getElementById("quiz-container");
 
@@ -117,8 +102,6 @@ function checkAnswer(answer) {
         quizContainer.innerHTML = '<h3>Incorrect. Try again!</h3>';
     }
 }
-
-
 const menuButton = document.getElementById("menu-button");
 const menu = document.querySelector(".menu");
 
