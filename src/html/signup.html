@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Club - Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="icon" href="C:\Users\TARA\Downloads\WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="C:\Users\TARA\Downloads\WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" alt="Astra Club Logo">
+                <span>Space For Everyone</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="members.html">Members</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="#">News & Events</a></li>
+                    <li><a href="astcal.html">Astronomical Calendar</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="login">
+                    <a href="#"><i class="fas fa-user"></i> Log In</a>
+                </div>
+                <button id="darkModeToggle">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="signup-container">
+        <section class="signup-form-section">
+            <h1>Hello!</h1>
+            <p>Please signup to continue</p>
+            <form id="signupForm">
+                 <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                 <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+        <section class="signup-image-section">
+            <img src="C:\Users\TARA\Downloads\WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" alt="Space Theme">
+            <h2>Astra Club</h2>
+            <p>Already have an account?</p>
+            <a href="#">Sign In</a>
+        </section>
+    </main>
+
+    <footer>© 2025 Astronomy Club Amrita Vishwa Vidyapeetham</footer>
+    <script>
+        const form = document.getElementById('signupForm');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            if (password.length < 8) {
+                    alert("Password must be at least 8 characters long.");
+                    return;
+                }
+
+
+            try {
+                const response = await fetch('/api/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert(data.message);
+                    window.location.href = '/login';
+                } else {
+                    alert(data.message || 'Signup failed.');
+                }
+            } catch (error) {
+                console.error('Signup error:', error);
+                alert('An error occurred during signup.');
+            }
+        });
+    </script>
+</body>
+</html>

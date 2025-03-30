@@ -9,12 +9,12 @@
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="page-transition-in">
     <header>
         <div class="header-content">
             <div class="logo">
                 <img src="C:\Users\TARA\Downloads\WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" alt="Astra Club Logo">
-            
+
             </div>
             <nav>
                 <ul>
@@ -23,7 +23,7 @@
                     <li><a href="#">Resources</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="#">News & Events</a></li>
-                    <li><a href="#">Astronomical Calendar</a></li>
+                    <li><a href="astcal.html">Astronomical Calendar</a></li>
                     <li><a href="#">Blog</a></li>
                 </ul>
             </nav>
@@ -36,7 +36,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero hidden">
         <div class="overlay"></div>
         <div class="hero-content">
@@ -46,26 +45,22 @@
         </div>
     </section>
 
-    <!-- Live Astronomy News -->
     <section class="news hidden">
         <h2>Featured News</h2>
         <div class="news-container" id="news-container"></div>
         <a href="#" class="more-news">More Astronomy News →</a>
     </section>
 
-    <!-- Countdown Timer -->
     <section class="countdown-section hidden">
         <h2>Next Big Event</h2>
         <div id="countdown"></div>
     </section>
 
-    <!-- Live Sky Map -->
     <section class="sky-map hidden">
         <h2>Live Sky Map</h2>
         <iframe width="800" height="600" src="https://stellarium-web.org/" title="Stellarium Web"></iframe>
     </section>
 
-    <!-- Astronomy Quiz -->
     <section class="quiz-section hidden">
         <h2>Astronomy Quiz</h2>
         <button id="quiz-button">Start Quiz</button>

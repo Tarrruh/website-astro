@@ -1,3 +1,4 @@
+
 const darkModeToggle = document.getElementById("darkModeToggle");
 
 function setDarkMode(enabled) {
@@ -107,4 +108,27 @@ const menu = document.querySelector(".menu");
 
 menuButton.addEventListener("click", () => {
     menu.classList.toggle("active");
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('page-transition-in');
+    setTimeout(() => {
+        document.body.classList.add('page-transition-ready');
+    }, 100);
+});
+
+
+const navLinks = document.querySelectorAll('nav a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const targetURL = this.getAttribute('href');
+
+        document.body.classList.add('page-transition-out');
+
+        setTimeout(() => {
+            window.location.href = targetURL;
+        }, 300);
+    });
 });
