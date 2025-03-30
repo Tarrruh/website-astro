@@ -14,12 +14,6 @@ function applyTheme() {
         setDarkMode(false);
     }
 }
-const hour = new Date().getHours();
-if (localStorage.getItem("theme") === "dark" || (hour >= 19 || hour <= 6)) {
-    setDarkMode(true);
-} else if (localStorage.getItem("theme") !== "dark" && (hour < 19 && hour > 6)) {
-    setDarkMode(false);
-}
 
 darkModeToggle.addEventListener("click", () => {
     setDarkMode(!document.body.classList.contains("dark-mode"));
