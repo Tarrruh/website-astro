@@ -132,7 +132,7 @@ nav a:hover {
 .hero {
     position: relative;
     height: 50vh;
-    background: url('https://www.nasa.gov/sites/default/files/thumbnails/image/pia24924.jpg') no-repeat center center/cover;
+    background: url('https://github.com/Tarrruh/website-astro/blob/main/images/IMG-20250320-WA0002.jpg') no-repeat center center/cover;
     background-attachment: fixed;
     display: flex;
     align-items: center;
