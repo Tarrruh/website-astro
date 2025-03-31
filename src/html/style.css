@@ -6,176 +6,237 @@ body {
     color: #000;
     transition: background 0.5s ease, color 0.5s ease, opacity 0.3s ease-in-out;
     overflow-x: hidden;
-    }
-    .dark-mode {
+}
+
+.dark-mode {
     background-color: #000;
     color: #fff;
-    }
-    header {
+}
+
+header {
     background-color: #111;
     color: #fff;
-    padding: 20px 0;
+    padding: 15px 0;
     position: relative;
     z-index: 10;
-    }
-    .header-content {
+}
+
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    }
-    .logo {
+}
+
+.logo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    }
-    .logo img {
-    max-width: 150px;
+}
+
+.logo img {
+    max-width: 120px;
     height: auto;
     margin-bottom: 5px;
-    }
-    .logo span {
-    font-size: 0.9em;
+}
+
+.logo span {
+    font-size: 0.8em;
     color: #ddd;
-    }
-    nav ul {
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+#menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+
+nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    }
-    nav li {
-    margin: 0 15px;
-    }
-    nav a {
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
-    }
-    nav a:hover {
+    display: block;
+    padding: 5px 10px;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+nav a:hover {
     color: #aaa;
-    }
-    .header-right {
+}
+
+.header-right {
     display: flex;
     align-items: center;
-    }
-    .login a {
+}
+
+.login a {
     color: #fff;
     text-decoration: none;
     display: flex;
     align-items: center;
     transition: color 0.3s ease;
-    margin-right: 15px;
-    }
-    .login a i {
+    margin-right: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 5px;
+}
+
+.login a i {
     margin-right: 5px;
-    }
-    .login a:hover {
+}
+
+.login a:hover {
     color: #aaa;
-    }
-    #darkModeToggle {
+}
+
+#darkModeToggle {
     background: none;
     border: none;
     color: #fff;
     font-size: 1.2em;
     cursor: pointer;
     transition: color 0.3s ease;
-    }
-    #darkModeToggle:hover {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 5px;
+}
+
+#darkModeToggle:hover {
     color: #aaa;
-    }
-    .hero {
+}
+
+.hero {
     position: relative;
-    height: 100vh;
+    height: 50vh;
     background: url('https://www.nasa.gov/sites/default/files/thumbnails/image/pia24924.jpg') no-repeat center center/cover;
     background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 80px;
-    }
-    .overlay {
+    margin-top: 60px;
+}
+
+.overlay {
     position: absolute;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    }
-    .hero-content {
+}
+
+.hero-content {
     text-align: center;
     color: white;
     z-index: 1;
-    }
-    .hero-content h1 {
-    font-size: 3rem;
-    }
-    .hero-content .btn {
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+}
+
+.hero-content .btn {
     background: red;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: none;
     cursor: pointer;
-    }
-    .news {
+    font-size: 0.9em;
+}
+
+.news {
     text-align: center;
-    padding: 40px;
-    }
-    .news-container {
+    padding: 30px;
+}
+
+.news-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
-    }
-    .news-item {
+    gap: 15px;
+}
+
+.news-item {
     background: white;
-    width: 300px;
+    width: 280px;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
-    }
-    .news-item img {
+}
+
+.news-item img {
     width: 100%;
     border-radius: 5px;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
-    }
-    .news-item:hover {
+}
+
+.news-item:hover {
     transform: scale(1.05);
-    }
-    .dark-mode .news-item {
+}
+
+.dark-mode .news-item {
     background: #333;
     color: white;
-    }
-    .countdown-section {
+}
+
+.countdown-section {
     text-align: center;
     padding: 20px;
-    }
-    #countdown {
-    font-size: 1.5rem;
+}
+
+#countdown {
+    font-size: 1.2rem;
     text-align: center;
-    margin-top: 20px;
-    }
-    .sky-map {
-    text-align: center;
-    padding: 20px;
-    }
-    .quiz-section {
+    margin-top: 15px;
+}
+
+.sky-map {
     text-align: center;
     padding: 20px;
-    }
-    #quiz-container {
+}
+
+.quiz-section {
+    text-align: center;
+    padding: 20px;
+}
+
+#quiz-container {
     text-align: center;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    }
-    #quiz-container h3 {
+}
+
+#quiz-container h3 {
     margin-bottom: 15px;
-    }
-    #quiz-container button {
+}
+
+#quiz-container button {
     margin: 5px;
     padding: 10px 20px;
     border: none;
@@ -184,129 +245,219 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    }
-    #quiz-container button:hover {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+#quiz-container button:hover {
     background-color: #0056b3;
-    }
-    footer {
+}
+
+footer {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     background-color: #333;
     color: white;
-    }
-    .hidden {
+    font-size: 0.9em;
+}
+
+.hidden {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5s ease;
-    }
-    .show {
+}
+
+.show {
     opacity: 1;
     transform: translateY(0);
-    }
-    .gallery {
+}
+
+.gallery {
     max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    }
-    .gallery-title {
-    font-size: 2rem;
+    margin: 15px auto;
+    padding: 15px;
+}
+
+.gallery-title {
+    font-size: 1.75rem;
     text-align: center;
-    margin-bottom: 20px;
-    }
-    .gallery-container {
+    margin-bottom: 15px;
+}
+
+.gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    }
-    .gallery-item {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
     position: relative;
     overflow: hidden;
-    }
-    .gallery-item img {
+}
+
+.gallery-item img {
     width: 100%;
     height: auto;
     display: block;
     transition: transform 0.3s ease;
-    }
-    .gallery-item:hover img {
+}
+
+.gallery-item:hover img {
     transform: scale(1.1);
-    }
-    .dark-mode .gallery-item {
+}
+
+.dark-mode .gallery-item {
     background-color: #333;
     border-color: #555;
     color: #eee;
-    }
-    .image-title {
+}
+
+.image-description {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
-    padding: 10px;
+    padding: 8px;
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    }
-    .gallery-item:hover .image-title {
+    box-sizing: border-box;
+    font-size: 0.75em;
+}
+
+.gallery-item:hover .image-description {
     opacity: 1;
-    }
-    
-    /* Team Page Styles */
-    .team {
+}
+
+.team {
     max-width: 1000px;
-    margin: 20px auto;
-    padding: 20px;
-    }
-    
-    .team-title {
-    font-size: 2rem;
+    margin: 15px auto;
+    padding: 15px;
+}
+
+.team-title {
+    font-size: 1.75rem;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #b8860b;
-    }
-    
-    .team-member {
+}
+
+.team-member {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
-    }
-    
-    .member-image {
-    width: 200px;
-    height: 200px;
+    margin-bottom: 30px;
+}
+
+.member-image {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     overflow: hidden;
-    margin-right: 30px;
+    margin-right: 20px;
     flex-shrink: 0;
-    }
-    .member-image img {
+}
+
+.member-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    }
-    .member-info {
+}
+
+.member-info {
     flex-grow: 1;
-    }
-    .member-name {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+}
+
+.member-name {
+    font-size: 1.25rem;
+    margin-bottom: 3px;
     color: #fff;
-    }
-    .member-role {
+}
+
+.member-role {
     font-style: italic;
     color: #aaa;
-    margin-bottom: 10px;
-    }
-    .member-bio {
-    line-height: 1.6;
+    margin-bottom: 8px;
+    font-size:0.9em;
+}
+
+.member-bio {
+    line-height: 1.4;
     color: #ddd;
-    }
-    .dark-mode .team-title,
-    .dark-mode .member-name,
-    .dark-mode .member-bio,
-    .dark-mode .member-role{
+    font-size:0.9em;
+}
+
+.dark-mode .team-title,
+.dark-mode .member-name,
+.dark-mode .member-bio,
+.dark-mode .member-role {
     color: #fff
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    
+
+    nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #menu-toggle {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: static;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav li {
+        margin: 0;
+        border-bottom: 1px solid #555;
+    }
+
+    nav a {
+        padding: 10px;
+    }
+    .header-right{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .news-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .news-item {
+        width: 90%;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+    .team-member {
+        flex-direction: column;
+        text-align:center;
+    }
+    .member-image {
+        margin:0 auto 20px;
+    }
+     .image-description {
+        font-size:0.75em;
+    }
+}
