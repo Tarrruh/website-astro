@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Club - Members</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="icon" href="./images/WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            transition: background 0.5s ease, color 0.5s ease, opacity 0.3s ease-in-out;
+            overflow-x: hidden;
+        }
+    
+        .dark-mode {
+            background-color: #000;
+            color: #fff;
+        }
+    
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 15px 0;
+            position: relative;
+            z-index: 10;
+        }
+    
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .logo img {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+    
+        .logo span {
+            font-size: 0.8em;
+            color: #ddd;
+        }
+    
+        nav {
+            display: flex;
+            align-items: center;
+        }
+    
+        #menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 0;
+            margin-right: 10px;
+        }
+    
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+    
+        nav li {
+            margin: 0 10px;
+        }
+    
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 5px 10px;
+            min-width: 44px;
+            min-height: 44px;
+        }
+    
+        nav a:hover {
+            color: #aaa;
+        }
+    
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+    
+        .login a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            margin-right: 10px;
+            min-width: 44px;
+            min-height: 44px;
+            padding: 5px;
+        }
+    
+        .login a i {
+            margin-right: 5px;
+        }
+    
+        .login a:hover {
+            color: #aaa;
+        }
+    
+        #darkModeToggle {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            min-width: 44px;
+            min-height: 44px;
+            padding: 5px;
+        }
+    
+        #darkModeToggle:hover {
+            color: #aaa;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            font-size: 0.9em;
+            margin-top: 40px;
+        }
+    
+        .social-link {
+            display: inline-block;
+            margin: 0 10px;
+        }
+    
+        .social-icon {
+            border-radius: 50%;
+        }
+    
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+    
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Blog article specific styles */
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .article-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 10px 0 20px;
+        }
+
+        .dark-mode .article-meta {
+            color: #aaa;
+        }
+
+        .article-author {
+            font-style: italic;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            margin: 0 0 15px;
+            line-height: 1.2;
+        }
+
+        .article-featured-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .article-content h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #ddd;
+            padding-left: 20px;
+            margin-left: 0;
+            color: #555;
+            font-style: italic;
+        }
+
+        .dark-mode .article-content blockquote {
+            border-left-color: #444;
+            color: #bbb;
+        }
+
+        .article-tags {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .article-tag {
+            background: #eee;
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .dark-mode .article-tag {
+            background: #333;
+            color: #ddd;
+        }
+
+        .article-share {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .share-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .share-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .share-button:hover {
+            background: #ddd;
+        }
+
+        .dark-mode .share-button {
+            background: #333;
+            color: #fff;
+        }
+
+        .dark-mode .share-button:hover {
+            background: #444;
+        }
+
+        .related-posts {
+            margin-top: 50px;
+        }
+
+        .related-posts h3 {
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .dark-mode .related-posts h3 {
+            border-bottom-color: #333;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .related-post {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .related-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .dark-mode .related-post {
+            background: #222;
+            box-shadow: 0 3px 8px rgba(255,255,255,0.1);
+        }
+
+        .related-image {
+            height: 160px;
+        }
+
+        .related-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .related-content {
+            padding: 15px;
+        }
+
+        .related-title {
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+        }
+
+        .related-date {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .dark-mode .related-date {
+            color: #aaa;
+        }
+
+        .author-bio {
+            margin-top: 40px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .dark-mode .author-bio {
+            background: #222;
+        }
+
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .author-info p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin-top: 40px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-to-blog i {
+            margin-right: 5px;
+        }
+
+        .dark-mode .back-to-blog {
+            color: #fff;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+    
+            nav {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+    
+            #menu-toggle {
+                display: block;
+                margin-bottom: 10px;
+            }
+    
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #333;
+                position: static;
+            }
+    
+            nav ul.active {
+                display: flex;
+            }
+    
+            nav li {
+                margin: 0;
+                border-bottom: 1px solid #555;
+            }
+    
+            nav a {
+                padding: 10px;
+            }
+            
+            .header-right {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="page-transition-in">
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="./images/WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" alt="Astra Club Logo">
+                <span>Space For Everyone</span>
+            </div>
+            <nav>
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="members.html">Members</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="news.html">News & Events</a></li>
+                    <li><a href="astcal.html">Astronomical Calendar</a></li>
+                    <li><a href="blogpg1.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="login">
+                    <a href="signup.html"><i class="fas fa-user"></i> Log In</a>
+                </div>
+                <button id="darkModeToggle">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-container hidden">
+        <article>
+            <div class="article-header">
+                <div class="article-meta">
+                    <span class="article-date">March 25, 2025</span> | 
+                    <span class="article-author">By Srinidhi</span> | 
+                    <span class="article-category">Equipment Reviews</span>
+                </div>
+                <h1 class="article-title">New Telescope Added to Our Observatory</h1>
+            </div>
+
+            <img src="./images/R.jpeg" alt="New Telescope" class="article-featured-image">
+
+            <div class="article-content">
+                <p>Thanks to the university's generous funding, we've recently added a new 12-inch Schmidt-Cassegrain telescope to our observatory. This acquisition marks a significant upgrade to our observational capabilities and will enhance both our research and public outreach programs.</p>
+
+                <h2>About the Telescope</h2>
+                <p>The Celestron EdgeHD 12" is a versatile, high-performance Schmidt-Cassegrain telescope that offers exceptional image quality across a wide field of view. With its advanced optical design, it virtually eliminates coma, field curvature, and off-axis astigmatism, making it ideal for both visual astronomy and astrophotography.</p>
+
+                <p>Key specifications include:</p>
+                <ul>
+                    <li>12-inch (305mm) aperture</li>
+                    <li>3048mm focal length (f/10)</li>
+                    <li>EdgeHD optical design for flat, coma-free images</li>
+                    <li>StarBright XLT coatings for maximum light transmission</li>
+                    <li>Computerized GoTo mount with over 40,000 object database</li>
+                    <li>GPS alignment for precise tracking</li>
+                </ul>
+
+                <img src="./images/asdf.jpeg" alt="Telescope Setup" class="article-content-image">
+
+                <h2>First Light Experience</h2>
+                <p>Last weekend, club members gathered for the telescope's "first light" ceremony. Despite some cloud cover early in the evening, the skies cleared up around 10 PM, allowing us to test the telescope's capabilities.</p>
+
+                <p>Our first target was Jupiter, which was breathtaking through the new optics. The cloud bands were clearly visible, and we could easily spot four of its largest moons. The telescope's tracking system performed flawlessly, keeping the gas giant centered in the eyepiece for extended viewing.</p>
+
+                <h2>Future Observation Plans</h2>
+                <p>With this new addition to our observatory, we're excited to expand our observational projects. Here's what we plan to observe and study in the coming months:</p>
+
+                <h3>Planetary Observations</h3>
+                <p>The high-resolution capabilities of the EdgeHD 12" make it perfect for detailed planetary observations. We'll be focusing on Mars as it approaches opposition later this year, as well as continuing our ongoing observation program of Jupiter's atmospheric features.</p>
+
+                <h3>Deep Sky Objects</h3>
+                <p>The increased aperture will allow us to observe fainter deep sky objects than ever before. We've already compiled a list of challenging galaxies and nebulae that we plan to study, including the Horsehead Nebula in Orion and the distant galaxy cluster in Coma Berenices.</p>
+
+                <h3>Astrophotography</h3>
+                <p>The telescope's flat field design is ideal for astrophotography. We've acquired a new ZWO ASI294MC Pro camera that pairs perfectly with this telescope, and several club members are already planning imaging sessions to capture detailed photos of galaxies, star clusters, and nebulae.</p>
+
+                <blockquote>"This telescope opens up a whole new realm of possibilities for our astronomy club. Objects that were previously at the limit of our observational capabilities are now easily visible, and the image quality is simply stunning." — Dr. XYZ, Faculty Advisor</blockquote>
+
+                <h2>Join Us for Public Viewing Nights</h2>
+                <p>We're excited to share our new telescope with the campus community! Starting next month, we'll be hosting regular public viewing nights at the observatory. These events will be open to all students and faculty, regardless of astronomy experience.</p>
+
+                <p>Our first public viewing night is scheduled for April 15th from 8:00 PM to 11:00 PM, weather permitting. We'll be focusing on observations of the Moon and Jupiter, with club members on hand to explain what you're seeing and answer questions.</p>
+
+                <p>No registration is required—just show up and look through the eyepiece! Check our social media channels for weather updates or schedule changes.</p>
+            </div>
+
+            <div class="article-tags">
+                <a href="telescopes.html" class="article-tag">telescopes</a>
+                <a href="astrophotography.html" class="article-tag">astrophotography</a>
+                <a href="planets.html" class="article-tag">planets</a>
+            </div>
+
+
+            <div class="author-bio">
+                <img src="./images/Screenshot 2025-04-14 204238.png" alt="Author" class="author-avatar">
+                <div class="author-info">
+                    <h4>Srinidhi</h4>
+                    <p>Srinidhi is a first-year Physics student and the creative director of Astra Club. Her interests include telescope optics, astrophotography, and science communication.</p>
+                </div>
+            </div>
+
+            <a href="blogpg1.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+        </article>
+
+        <section class="related-posts">
+            <h3>Related Articles</h3>
+            <div class="related-grid">
+                <div class="related-post">
+                    <div class="related-image">
+                        <img src="#" alt="Astrophotography Workshop">
+                    </div>
+                    <div class="related-content">
+                        <h4 class="related-title">Beginners Guide to Astrophotography</h4>
+                        <div class="related-date">March 12, 2025</div>
+                    </div>
+                </div>
+
+                <div class="related-post">
+                    <div class="related-image">
+                        <img src="#" alt="Star Party">
+                    </div>
+                    <div class="related-content">
+                        <h4 class="related-title">Starry Night Highlights</h4>
+                        <div class="related-date">February 28, 2025</div>
+                    </div>
+                </div>
+
+                <div class="related-post">
+                    <div class="related-image">
+                        <img src="#" alt="Equipment Review">
+                    </div>
+                    <div class="related-content">
+                        <h4 class="related-title">Choosing Your First Telescope: A Buyer's Guide</h4>
+                        <div class="related-date">January 15, 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Check out our socials!<br><br>
+        <a href="https://www.instagram.com/astraclubcbe/?__pwa=1" class="social-link" target="_blank" rel="noopener noreferrer">
+            <img src="./images/OIP (1).jpg" height="23px" width="23px" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://chat.whatsapp.com/EP5vVE0K3N5CHhZnLbM6ZQ" class="social-link" target="_blank" rel="noopener noreferrer">
+            <img src="./images/whatsapp-logo-black-and-white.png" height="23px" width="23px" alt="WhatsApp" class="social-icon">
+        </a>
+        <a href="https://open.spotify.com/playlist/0nc33G7mgWdVAJipxH5qT6?si=xmfnbFOmTImPyUPYD5AqYA" class="social-link" target="_blank" rel="noopener noreferrer">
+            <img src="./images/OIP (2).jpg" height="23px" width="23px" alt="Spotify" class="social-icon">
+        </a>
+        <br><br>
+        © 2025 Astronomy Club Amrita Vishwa Vidyapeetham
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('darkMode', null);
+                darkModeToggle.textContent = '🌙';
+            }
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+        
+        // Scroll animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.hidden').forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>  

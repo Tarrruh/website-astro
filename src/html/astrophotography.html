@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Club - Members</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="icon" href="./images/WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            transition: background 0.5s ease, color 0.5s ease, opacity 0.3s ease-in-out;
+            overflow-x: hidden;
+            }
+    
+        .dark-mode {
+            background-color: #000;
+            color: #fff;
+        }
+    
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 15px 0;
+            position: relative;
+            z-index: 10;
+            }
+    
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .logo img {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+    
+        .logo span {
+            font-size: 0.8em;
+            color: #ddd;
+        }
+    
+        nav {
+            display: flex;
+            align-items: center;
+        }
+    
+            #menu-toggle {
+                display: none;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.5em;
+                cursor: pointer;
+                padding: 0;
+                margin-right: 10px;
+            }
+    
+            nav ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+            }
+    
+            nav li {
+                margin: 0 10px;
+            }
+    
+            nav a {
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+                display: block;
+                padding: 5px 10px;
+                min-width: 44px;
+                min-height: 44px;
+            }
+    
+            nav a:hover {
+                color: #aaa;
+            }
+    
+            .header-right {
+                display: flex;
+                align-items: center;
+            }
+    
+            .login a {
+                color: #fff;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                transition: color 0.3s ease;
+                margin-right: 10px;
+                min-width: 44px;
+                min-height: 44px;
+                padding: 5px;
+            }
+    
+            .login a i {
+                margin-right: 5px;
+            }
+    
+            .login a:hover {
+                color: #aaa;
+            }
+    
+            #darkModeToggle {
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.2em;
+                cursor: pointer;
+                transition: color 0.3s ease;
+                min-width: 44px;
+                min-height: 44px;
+                padding: 5px;
+            }
+    
+            #darkModeToggle:hover {
+                color: #aaa;
+            }
+    
+            .hero {
+                position: relative;
+                height: 300px;
+                background: url('/api/placeholder/1200/400') no-repeat center center/cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 0;
+            }
+    
+            .overlay {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+            }
+    
+            .hero-content {
+                text-align: center;
+                color: white;
+                z-index: 1;
+                padding: 0 20px;
+            }
+    
+            .hero-content h1 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+    
+            .hero-content p {
+                font-size: 1.2rem;
+                margin: 0;
+            }
+    
+            footer {
+                text-align: center;
+                padding: 15px;
+                background-color: #333;
+                color: white;
+                font-size: 0.9em;
+            }
+    
+            .social-link {
+                display: inline-block;
+                margin: 0 10px;
+            }
+    
+            .social-icon {
+                border-radius: 50%;
+            }
+    
+            .hidden {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.5s ease;
+            }
+    
+            .show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+    
+            /* Blog specific styles */
+            .blog-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 30px 20px;
+                display: grid;
+                grid-template-columns: 3fr 1fr;
+                gap: 30px;
+            }
+    
+            .blog-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 25px;
+            }
+    
+            .blog-post {
+                background: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s;
+            }
+    
+            .blog-post:hover {
+                transform: translateY(-5px);
+            }
+    
+            .dark-mode .blog-post {
+                background: #222;
+                box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            }
+    
+            .post-image {
+                height: 200px;
+                overflow: hidden;
+            }
+    
+            .post-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s;
+            }
+    
+            .blog-post:hover .post-image img {
+                transform: scale(1.05);
+            }
+    
+            .post-content {
+                padding: 20px;
+            }
+    
+            .post-date {
+                font-size: 0.85em;
+                color: #666;
+                margin-bottom: 10px;
+            }
+    
+            .dark-mode .post-date {
+                color: #aaa;
+            }
+    
+            .post-title {
+                font-size: 1.4rem;
+                margin: 0 0 10px 0;
+                color: #000;
+            }
+    
+            .dark-mode .post-title {
+                color: #fff;
+            }
+    
+            .post-excerpt {
+                margin: 0 0 15px 0;
+                line-height: 1.5;
+                color: #444;
+            }
+    
+            .dark-mode .post-excerpt {
+                color: #ddd;
+            }
+    
+            .read-more {
+                display: inline-block;
+                color: #111;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 0.9rem;
+                position: relative;
+            }
+    
+            .read-more::after {
+                content: "→";
+                margin-left: 5px;
+                transition: margin-left 0.3s;
+            }
+    
+            .read-more:hover::after {
+                margin-left: 10px;
+            }
+    
+            .dark-mode .read-more {
+                color: #fff;
+            }
+    
+            .sidebar {
+                position: sticky;
+                top: 30px;
+            }
+    
+            .sidebar-widget {
+                background: white;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 25px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            .dark-mode .sidebar-widget {
+                background: #222;
+                box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            }
+    
+            .sidebar-title {
+                margin-top: 0;
+                margin-bottom: 15px;
+                font-size: 1.2rem;
+                color: #000;
+                border-bottom: 2px solid #ddd;
+                padding-bottom: 8px;
+            }
+    
+            .dark-mode .sidebar-title {
+                color: #fff;
+                border-bottom-color: #444;
+            }
+    
+            .sidebar-widget ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            .sidebar-widget li {
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #eee;
+            }
+    
+            .dark-mode .sidebar-widget li {
+                border-bottom-color: #333;
+            }
+    
+            .sidebar-widget li:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+    
+            .sidebar-widget a {
+                color: #333;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+    
+            .sidebar-widget a:hover {
+                color: #666;
+            }
+    
+            .dark-mode .sidebar-widget a {
+                color: #ddd;
+            }
+    
+            .dark-mode .sidebar-widget a:hover {
+                color: #fff;
+            }
+    
+            .search-form {
+                display: flex;
+                margin-bottom: 10px;
+            }
+    
+            .search-input {
+                flex-grow: 1;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px 0 0 4px;
+                font-size: 0.9rem;
+            }
+    
+            .dark-mode .search-input {
+                background: #333;
+                border-color: #444;
+                color: #fff;
+            }
+    
+            .search-button {
+                background: #111;
+                color: white;
+                border: none;
+                padding: 0 15px;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+            }
+    
+            .search-button:hover {
+                background: #333;
+            }
+    
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+    
+            .tag {
+                background: #eee;
+                color: #333;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                text-decoration: none;
+                transition: background 0.3s;
+            }
+    
+            .tag:hover {
+                background: #ddd;
+            }
+    
+            .dark-mode .tag {
+                background: #333;
+                color: #ddd;
+            }
+    
+            .dark-mode .tag:hover {
+                background: #444;
+            }
+    
+            .newsletter-form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+    
+            .newsletter-input {
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 0.9rem;
+            }
+    
+            .dark-mode .newsletter-input {
+                background: #333;
+                border-color: #444;
+                color: #fff;
+            }
+    
+            .newsletter-button {
+                background: #111;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+    
+            .newsletter-button:hover {
+                background: #333;
+            }
+    
+            .pagination {
+                display: flex;
+                justify-content: center;
+                margin-top: 40px;
+            }
+    
+            .pagination a {
+                display: inline-block;
+                padding: 8px 15px;
+                margin: 0 5px;
+                background: #fff;
+                color: #333;
+                border-radius: 4px;
+                text-decoration: none;
+                transition: background 0.3s, color 0.3s;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+    
+            .pagination a:hover, .pagination a.active {
+                background: #111;
+                color: #fff;
+            }
+    
+            .dark-mode .pagination a {
+                background: #222;
+                color: #ddd;
+                box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+            }
+    
+            .dark-mode .pagination a:hover, .dark-mode .pagination a.active {
+                background: #444;
+                color: #fff;
+            }
+    
+            /* Responsive styles */
+            @media (max-width: 768px) {
+                .header-content {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+    
+                nav {
+                    width: 100%;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+    
+                #menu-toggle {
+                    display: block;
+                    margin-bottom: 10px;
+                }
+    
+                nav ul {
+                    display: none;
+                    flex-direction: column;
+                    width: 100%;
+                    background-color: #333;
+                    position: static;
+                }
+    
+                nav ul.active {
+                    display: flex;
+                }
+    
+                nav li {
+                    margin: 0;
+                    border-bottom: 1px solid #555;
+                }
+    
+                nav a {
+                    padding: 10px;
+                }
+                
+                .header-right {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+    
+                .blog-container {
+                    grid-template-columns: 1fr;
+                }
+    
+                .blog-grid {
+                    grid-template-columns: 1fr;
+                }
+    
+                .hero-content h1 {
+                    font-size: 2rem;
+                }
+    
+                .hero-content p {
+                    font-size: 1rem;
+                }
+            }
+        </style>
+    </head>
+    <body class="page-transition-in">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <img src="./images/WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" alt="Astra Club Logo">
+                    <span>Space For Everyone</span>
+                </div>
+                <nav>
+                    <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="members.html">Members</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="news.html">News & Events</a></li>
+                        <li><a href="astcal.html">Astronomical Calendar</a></li>
+                        <li><a href="blogpg1.html">Blog</a></li>
+                    </ul>
+                </nav>
+                <div class="header-right">
+                    <div class="login">
+                        <a href="signup.html"><i class="fas fa-user"></i> Log In</a>
+                    </div>
+                    <button id="darkModeToggle">🌙</button>
+                </div>
+            </div>
+        </header>
+    
+        <section class="hero hidden">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Astra Club Blog</h1>
+                <p>Exploring the cosmos through our experiences and discoveries</p>
+            </div>
+        </section>
+    
+        <div class="blog-container" class="hero hidden">
+            <main class="blog-main">
+                <div class="blog-grid">
+                    <article class="blog-post hidden">
+                        <div class="post-image">
+                            <img src="./images/WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" alt="Solar Eclipse Event">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-date">April 8, 2025</div>
+                            <h2 class="post-title">Solar Eclipse Viewing Experience at Campus</h2>
+                            <p class="post-excerpt">Enter Text</p>
+                            <a href="#" class="read-more">Continue Reading</a>
+                        </div>
+                    </article>
+    
+                    <article class="blog-post hidden">
+                        <div class="post-image">
+                            <img src="./images/R.jpeg" alt="New Telescope">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-date">March 25, 2025</div>
+                            <h2 class="post-title">New Telescope Added to Our Observatory</h2>
+                            <p class="post-excerpt">Enter Text</p>
+                            <a href="blog1.html" class="read-more">Continue Reading</a>
+                        </div>
+                    </article>
+    
+                
+    
+                    <article class="blog-post hidden">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/300" alt="Meteor Shower Guide">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-date">January 30, 2025</div>
+                            <h2 class="post-title">Guide to Observing the Upcoming Meteor Shower</h2>
+                            <p class="post-excerpt">Enter Text.</p>
+                            <a href="#" class="read-more">Continue Reading</a>
+                        </div>
+                    </article>
+                </div>
+    
+                <div class="pagination">
+                    <a href="blogpg1.html" class="active">1</a>
+                    <a href="blogpg2.html">2</a>
+                    <a href="blogpg3.html">3</a>
+                    <a href="blogpg2.html">Next →</a>
+                </div>
+            </main>
+    
+            <aside class="sidebar">
+                <!-- <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Search</h3>
+                    <form class="search-form">
+                        <input type="text" class="search-input" placeholder="Search blog...">
+                        <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                    </form>
+                </div> -->
+    
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Recent Posts</h3>
+                    <ul>
+                        <li><a href="#">Solar Eclipse Viewing Experience at Campus</a></li>
+                        <li><a href="#">New Telescope Added to Our Observatory</a></li>
+                        <li><a href="#">Beginners Guide to Astrophotography</a></li>
+                        <li><a href="#">Starry Night Highlights</a></li>
+                        <li><a href="#">Interview with Dr. XYZ, NASA Astrophysicist</a></li>
+                    </ul>
+                </div>
+    
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <ul>
+                        <li><a href="#">Club Events</a></li>
+                        <li><a href="#">Observational Astronomy</a></li>
+                        <li><a href="#">Astrophotography</a></li>
+                        <li><a href="#">Equipment Reviews</a></li>
+                        <li><a href="#">Space Missions</a></li>
+                        <li><a href="#">Astronomy Education</a></li>
+                    </ul>
+                </div>
+    
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Tags</h3>
+                    <div class="tags">
+                        <a href="stars.html" class="tag">stars</a>
+                        <a href="planets.html" class="tag">planets</a>
+                        <a href="galaxies.html" class="tag">galaxies</a>
+                        <a href="telescopes.html" class="tag">telescopes</a>
+                        <a href="astrophotography.html" class="tag">astrophotography</a>
+                        <a href="nasa.html" class="tag">nasa</a>
+                        <a href="space.html" class="tag">space</a>
+                        <a href="moon.html" class="tag">moon</a>
+                        <a href="solarsystem.html" class="tag">solar system</a>
+                    </div>
+                </div>
+    
+                <!-- <div class="sidebar-widget">
+                    <h3 class="sidebar-title">Newsletter</h3>
+                    <p>Subscribe to receive updates on our latest blog posts and astronomy events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email address">
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                </div> -->
+            </aside>
+        </div>
+    
+        <footer>
+            Check out our socials!<br><br>
+            <a href="https://www.instagram.com/astraclubcbe/?__pwa=1" class="social-link" target="_blank" rel="noopener noreferrer">
+                <img src="C:\Users\TARA\Desktop\website-astro\images\OIP (1).jpg" height="23px" width="23px" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://chat.whatsapp.com/EP5vVE0K3N5CHhZnLbM6ZQ" class="social-link" target="_blank" rel="noopener noreferrer">
+                <img src="C:\Users\TARA\Desktop\website-astro\images\whatsapp-logo-black-and-white.png" height="23px" width="23px" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://open.spotify.com/playlist/0nc33G7mgWdVAJipxH5qT6?si=xmfnbFOmTImPyUPYD5AqYA" class="social-link" target="_blank" rel="noopener noreferrer">
+                <img src="C:\Users\TARA\Desktop\website-astro\images\OIP (2).jpg" height="23px" width="23px" alt="Instagram" class="social-icon">
+            </a>
+            <br><br>
+            © 2025 Astronomy Club Amrita Vishwa Vidyapeetham
+        </footer>
+    
+        <script>
+            // Dark mode toggle
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+            
+            // Check for saved dark mode preference
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                body.classList.add('dark-mode');
+                darkModeToggle.textContent = '☀️';
+            }
+            
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                    darkModeToggle.textContent = '☀️';
+                } else {
+                    localStorage.setItem('darkMode', null);
+                    darkModeToggle.textContent = '🌙';
+                }
+            });
+            
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Scroll animation
+            document.addEventListener('DOMContentLoaded', () => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('show');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                
+                document.querySelectorAll('.hidden').forEach(item => {
+                    observer.observe(item);
+                });
+            });
+        </script>
+    </body>
+    </html>
