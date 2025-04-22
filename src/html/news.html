@@ -52,11 +52,11 @@
             font-weight: bold;
             margin-bottom: 8px;
             font-size: 16px;
-            color: #0d47a1;
+            color: #000000;
         }
         
         .dark-mode .news-title {
-            color: #64b5f6;
+            color: #ffffff;
         }
         
         .news-date {
@@ -153,7 +153,9 @@
     <section class="space-news-section hidden">
         <h2 class="space-news-header">Latest Space News</h2><br><br><br>
         <div id="space-news-feed" class="space-news-container">
-            <p>Loading latest space news...</p>
+            <p>Loading latest space news...
+                As we fetch this from a 3rd party, we may experience some delay >.< 
+            </p>
         </div>
         <div class="attribution">
             News content provided by <a href="https://www.space.com" target="_blank" class="news-link">Space.com</a>
@@ -213,7 +215,7 @@
                         html += `
                             <div class="space-news-item">
                                 <div class="news-title">${title}</div>
-                                <div class="news-date">${formattedDate}</div>
+                                <div class="news-date">${formattedDate}</div><br>
                                 <div class="news-description">${description}</div>
                                 <a href="${link}" target="_blank" class="news-link">Read full article</a>
                             </div>
