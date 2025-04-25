@@ -381,13 +381,21 @@ footer {
     color: #aaa;
     margin-bottom: 8px;
     font-size:0.9em;
-}
+}l
 
 .member-bio {
     line-height: 1.4;
     color: #ddd;
     font-size:0.9em;
 }
+
+.member-year {
+    color:#aaa;
+    font-style: italic;
+    font-size: 0.9em;
+    
+}
+
 
 .dark-mode .team-title,
 .dark-mode .member-name,
