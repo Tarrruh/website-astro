@@ -3,13 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astra Club - Gallery</title>
+    <title>Astronomy Club</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
     <link rel="icon" href="./images/WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" type="image/x-icon">
+    <script defer src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        z-index: -2;
+        }
 
-</head>
+        .star {
+        position: fixed;
+        background-color: white;
+        border-radius: 50%;
+        z-index: -1;
+        pointer-events: none;
+        }
+
+        @keyframes twinkle {
+        0% { opacity: 0.3; }
+        50% { opacity: 1; }
+        100% { opacity: 0.3; }
+        }
+
+        .star-1 { animation: twinkle 4s infinite ease-in-out; }
+        .star-2 { animation: twinkle 3s infinite ease-in-out 1s; }
+        .star-3 { animation: twinkle 5s infinite ease-in-out 2s; }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const starCount = 100;
+
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star star-' + (i % 3 + 1);
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.top = Math.random() * 100 + 'vh';
+        const size = Math.random() * 2 + 1;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        document.body.appendChild(star);
+      }
+    });
+  </script>
 <body>
     <header>
         <div class="header-content">
