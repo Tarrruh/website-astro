@@ -10,15 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
 
-        body {
-            background-color: #000000;
-            position: relative;
-            color: #ffffff;
-            min-height: 100vh;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
         body::before {
             content: "";
             position: fixed;
@@ -32,12 +23,6 @@
             background-repeat: no-repeat;
             opacity: 0.7;
             z-index: -1;
-        }
-
-        header {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @keyframes twinkle {
@@ -165,13 +150,6 @@
             color: #bdbdbd;
         }
 
-        footer {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-        }
-        
         @media (max-width: 768px) {
             .space-news-container {
                 flex-direction: column;
@@ -203,9 +181,9 @@
                 </ul>
             </nav>
             <div class="header-right">
-                <div class="login">
+                <!-- <div class="login">
                     <a href="signup.html"><i class="fas fa-user"></i> Log In</a>
-                </div>
+                </div> -->
                 <button id="darkModeToggle">🌙</button>
             </div>
         </div>

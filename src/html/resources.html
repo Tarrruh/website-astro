@@ -8,6 +8,75 @@
     <script defer src="script.js"></script>
     <link rel="icon" href="./images/WhatsApp Image 2025-02-18 at 19.08.23_97c3a1fc-modified.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+            padding: 40px 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .name-section {
+            background-color: #000;
+            color: #d4af37;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .divider {
+            height: 40px;
+            background-color: #d4af37;
+            margin: 0 20px;
+        }
+
+        .image-section {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 <body class="page-transition-in">
     <header>
@@ -28,17 +97,71 @@
                 </ul>
             </nav>
             <div class="header-right">
-                <div class="login">
+                <!-- <div class="login">
                     <a href="signup.html"><i class="fas fa-user"></i> Log In</a>
-                </div>
+                </div> -->
                 <button id="darkModeToggle">🌙</button>
             </div>
         </div>
     </header>
 
-    <br><br><br><br><br><br>
-    <center class="hero hidden"><h1>Page under development :3</h1></center>
-    <br><br><br><br><br><br><br><br><br><br><br>
+    <div class="grid-container">
+        <div class="card">
+            <div class="name-section">DR JAMES O'DONOGHUE</div>
+            <div class="divider"></div>
+            <div class="image-section">
+                <img src="./images/Dr_ james O'donoghue.jpg" alt="Dr. James O'Donoghue">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="name-section">SOPHIA GAD-NASR</div>
+            <div class="divider"></div>
+            <div class="image-section sophia"></div>
+        </div>
+
+        <div class="card">
+            <div class="name-section">KEVIN M GILL</div>
+            <div class="divider"></div>
+            <div class="image-section kevin"></div>
+        </div>
+
+        <div class="card">
+            <div class="name-section">KATIE MACK</div>
+            <div class="divider"></div>
+            <div class="image-section katie"></div>
+        </div>
+
+        <div class="card">
+            <div class="name-section">DR BECKY</div>
+            <div class="divider"></div>
+            <div class="image-section becky"></div>
+        </div>
+
+        <div class="card">
+            <div class="name-section">PBS SPACE TIME</div>
+            <div class="divider"></div>
+            <div class="image-section spacetime"></div>
+        </div>
+
+        <div class="card">
+            <div class="name-section">SEAN CARROLL</div>
+            <div class="divider"></div>
+            <div class="image-section sean"></div>
+        </div>
+
+        <div class="card">
+            <div class="name-section">KURZGESAGT</div>
+            <div class="divider"></div>
+            <div class="image-section kurzgesagt"></div>
+        </div>
+
+        <div class="card">
+            <div class="name-section">ASTRONOMY ON</div>
+            <div class="divider"></div>
+            <div class="image-section astronomy"></div>
+        </div>
+    </div>
 
     <footer>
         Check out our socials!<br><br>
